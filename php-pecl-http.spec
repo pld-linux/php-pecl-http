@@ -3,7 +3,7 @@
 %define		_status		alpha
 
 Summary:	%{_modname} - extended HTTP support
-Summary(pl):	%{_modname} - rozszerzone wsparcie protoko³u HTTP
+Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
 Name:		php-pecl-%{_modname}
 Version:	0.5.0
 Release:	1
@@ -23,8 +23,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Currently implemented features:
-===============================
-
 - Building absolute URIs
 - RFC compliant HTTP redirects
 - RFC compliant HTTP date handling
@@ -39,9 +37,21 @@ Currently implemented features:
 
 In PECL status of this extension is: %{_status}.
 
-#%description -l pl
-#
-#To rozszerzenie ma w PECL status: %{_status}.
+%description -l pl
+Aktualnie zaimplementowane mo¿liwo¶ci:
+- tworzenie bezwzglêdnych URI
+- zgodne z RFC przekierowania HTTP
+- zgodna z RFC obs³uga daty HTTP
+- przetwarzanie nag³ówków i odpowiedzi HTTP
+- buforowanie z u¿yciem "Last-Modified" i/lub ETagów (z opcjê
+  generowania "w locie" ETagów z buforowanego wyj¶cia)
+- wysy³anie danych/plików/strumieni z obs³ug± (wielu) przedzia³ów
+- negocjacja preferowanego przez u¿ytkownika jêzyka/zestawu znaków
+- wygodne funkcje do ¿±dañ HEAD/GET/POST je¶li dostêpna jest libcurl
+- wywo³ania HTTP auth (Basic)
+- klasy HTTPi, HTTPi_Response i HTTPi_Request (z u¿yciem libcurl)
+
+To rozszerzenie ma w PECL status: %{_status}.
 
 %prep
 %setup -q -c
