@@ -1,16 +1,16 @@
 %define		_modname	http
 %define		_fmodname	pecl_http
-%define		_status		alpha
+%define		_status		beta
 
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
 Name:		php-pecl-%{_modname}
-Version:	0.6.1
+Version:	0.7.0
 Release:	1
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
-# Source0-md5:	ae01c5f10a66a969cf954e52fcc0ce11
+# Source0-md5:	c9e24ea9be29871fc30b7fea9caa8eaa
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
