@@ -5,12 +5,12 @@
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzone wsparcie protoko³u HTTP
 Name:		php-pecl-%{_modname}
-Version:	0.4.0
+Version:	0.5.0
 Release:	1
-License:	PHP 2.02
+License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
-# Source0-md5:	00946b14eca556ee5c223aaafbd38011
+# Source0-md5:	5f66c8c2ec72005b4e81e58ab594e489
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
@@ -26,11 +26,16 @@ Currently implemented features:
 ===============================
 
 - Building absolute URIs
-- RCF compliant HTTP redirects
-- Caching by "Last-Modified" and/or ETag (with 'on the fly' option)
+- RFC compliant HTTP redirects
+- RFC compliant HTTP date handling
+- Parsing of HTTP headers and responses
+- Caching by "Last-Modified" and/or ETag (with 'on the fly' option for
+  ETag generation from buffered output)
 - Sending data/files/streams with (multiple) ranges support
 - Negotiating user preferred language/charset
 - Convenient request functions to HEAD/GET/POST if libcurl is available
+- HTTP auth hooks (Basic)
+- HTTPi, HTTPi_Response and HTTPi_Request (with libcurl) classes
 
 In PECL status of this extension is: %{_status}.
 
