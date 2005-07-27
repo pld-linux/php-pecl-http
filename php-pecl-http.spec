@@ -5,12 +5,12 @@
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
 Name:		php-pecl-%{_modname}
-Version:	0.7.0
+Version:	0.10.1
 Release:	1
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
-# Source0-md5:	c9e24ea9be29871fc30b7fea9caa8eaa
+# Source0-md5:	63967a512656acfbc1dcd7cb521f2527
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
@@ -26,14 +26,14 @@ Currently implemented features:
 - Building absolute URIs
 - RFC compliant HTTP redirects
 - RFC compliant HTTP date handling
-- Parsing of HTTP headers and responses
+- Parsing of HTTP headers and messages
 - Caching by "Last-Modified" and/or ETag (with 'on the fly' option for
   ETag generation from buffered output)
 - Sending data/files/streams with (multiple) ranges support
 - Negotiating user preferred language/charset
 - Convenient request functions to HEAD/GET/POST if libcurl is available
 - HTTP auth hooks (Basic)
-- HTTPi, HTTPi_Response and HTTPi_Request (with libcurl) classes
+- PHP5 classes: HttpUtil, HttpResponse, HttpRequest, HttpRequestPool, HttpMessage
 
 In PECL status of this extension is: %{_status}.
 
@@ -42,14 +42,14 @@ Aktualnie zaimplementowane mo¿liwo¶ci:
 - tworzenie bezwzglêdnych URI
 - zgodne z RFC przekierowania HTTP
 - zgodna z RFC obs³uga daty HTTP
-- przetwarzanie nag³ówków i odpowiedzi HTTP
+- przetwarzanie nag³ówków i wiadomo¶ci HTTP
 - buforowanie z u¿yciem "Last-Modified" i/lub ETagów (z opcjê
   generowania "w locie" ETagów z buforowanego wyj¶cia)
 - wysy³anie danych/plików/strumieni z obs³ug± (wielu) przedzia³ów
 - negocjacja preferowanego przez u¿ytkownika jêzyka/zestawu znaków
 - wygodne funkcje do ¿±dañ HEAD/GET/POST je¶li dostêpna jest libcurl
 - wywo³ania HTTP auth (Basic)
-- klasy HTTPi, HTTPi_Response i HTTPi_Request (z u¿yciem libcurl)
+- klasy PHP5: HttpUtil, HttpResponse, HttpRequest, HttpRequestPool, HttpMessage
 
 To rozszerzenie ma w PECL status: %{_status}.
 
