@@ -1,6 +1,8 @@
 %define		_modname	http
 %define		_fmodname	pecl_http
 %define		_status		beta
+%define		_sysconfdir	/etc/php
+%define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
 
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
@@ -18,9 +20,6 @@ Requires:	%{_sysconfdir}/conf.d
 %requires_eq_to php-common php-devel
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_sysconfdir	/etc/php
-%define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
 
 %description
 Currently implemented features:
