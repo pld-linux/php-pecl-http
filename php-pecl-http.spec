@@ -5,21 +5,22 @@
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
 Name:		php-pecl-%{_modname}
-Version:	0.10.1
+Version:	0.12.0
 Release:	1
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
-# Source0-md5:	63967a512656acfbc1dcd7cb521f2527
+# Source0-md5:	d180e5b95d22c911e40d8265f7c8fd96
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
-Requires:	php-common >= 3:5.0.0
+Requires:	%{_sysconfdir}/conf.d
+%requires_eq_to php-common php-devel
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/php
-%define		extensionsdir	%{_libdir}/php
+%define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
 
 %description
 Currently implemented features:
@@ -64,22 +65,29 @@ phpize
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{extensionsdir}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/conf.d,%{extensionsdir}}
 
 install %{_fmodname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{extensionsdir}/%{_modname}.so
+cat << 'EOF' > $RPM_BUILD_ROOT%{_sysconfdir}/conf.d/%{_modname}.ini
+; Enable %{_modname} extension module
+extension=%{_modname}.so
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%{_sbindir}/php-module-install install %{_modname} %{_sysconfdir}/php-cgi.ini
+[ ! -f /etc/apache/conf.d/??_mod_php4.conf ] || %service -q apache restart
+[ ! -f /etc/httpd/httpd.conf/??_mod_php4.conf ] || %service -q httpd restart
 
-%preun
-if [ "$1" = "0" ]; then
-	%{_sbindir}/php-module-install remove %{_modname} %{_sysconfdir}/php-cgi.ini
+%postun
+if [ "$1" = 0 ]; then
+        [ ! -f /etc/apache/conf.d/??_mod_php4.conf ] || %service -q apache restart
+        [ ! -f /etc/httpd/httpd.conf/??_mod_php4.conf ] || %service -q httpd restart
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc %{_fmodname}-%{version}/{docs,EXPERIMENTAL}
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/conf.d/%{_modname}.ini
 %attr(755,root,root) %{extensionsdir}/%{_modname}.so
