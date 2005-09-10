@@ -7,12 +7,12 @@
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
 Name:		php-pecl-%{_modname}
-Version:	0.12.0
+Version:	0.13.0
 Release:	1
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
-# Source0-md5:	d180e5b95d22c911e40d8265f7c8fd96
+# Source0-md5:	97d867fced7c93b7b6e016044faa7579
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
