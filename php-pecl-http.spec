@@ -16,7 +16,7 @@ Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	php-devel >= 3:5.0.0
 Requires:	%{_sysconfdir}/conf.d
-%requires_php_extension
+%{?requires_php_extension}
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
