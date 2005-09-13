@@ -14,10 +14,9 @@ Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
 # Source0-md5:	97d867fced7c93b7b6e016044faa7579
 URL:		http://pecl.php.net/package/pecl_http/
-BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
 Requires:	%{_sysconfdir}/conf.d
-%requires_eq_to php-common php-devel
+%requires_php_extension
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
