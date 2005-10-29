@@ -3,12 +3,11 @@
 %define		_status		beta
 %define		_sysconfdir	/etc/php
 %define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
-
 Summary:	%{_modname} - extended HTTP support
 Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
 Name:		php-pecl-%{_modname}
 Version:	0.13.0
-Release:	2
+Release:	3
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
@@ -16,6 +15,7 @@ Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	php-devel >= 3:5.0.0
 Requires:	%{_sysconfdir}/conf.d
+BuildRequires:	rpmbuild(macros) >= 1.254
 %{?requires_php_extension}
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
