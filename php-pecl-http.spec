@@ -55,11 +55,12 @@ To rozszerzenie HTTP ma na celu dostarczenie wygodnego i potê¿nego
 zestawu funkcjonalno¶ci do jednego z najwa¿niejszych zastosowañ PHP.
 
 U³atwia obs³ugê adresów HTTP, dat, przekierowañ, nag³ówków i
-wiadmo¶ci, dostarcza sposób do negocjacji preferowana jêzyka i strony
-kodowej klienta, jak równie¿ wygodnego sposobu do wysy³ania dowolnego
-rodzaju danych z mo¿liwo¶ci± keszowania oraz wznawiania transferów.
+wiadmo¶ci, dostarcza sposób do negocjacji preferowanego jêzyka i
+strony kodowej klienta, jak równie¿ wygodnego sposobu wysy³ania
+dowolnego rodzaju danych z mo¿liwo¶ci± keszowania oraz wznawiania
+transferów.
 
-Rozszerzenie dostracza potê¿ne mo¿liwo¶ci zapytañ, je¶li zbudowane
+Rozszerzenie dostarcza potê¿ne mo¿liwo¶ci zapytañ, je¶li zbudowane
 jest ze wsparciem dla CURL. Równoleg³e zapytania s± dostêpne od wersji
 PHP 5.
 
