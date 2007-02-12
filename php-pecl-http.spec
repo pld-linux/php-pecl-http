@@ -2,7 +2,7 @@
 %define		_fmodname	pecl_http
 %define		_status		stable
 Summary:	%{_modname} - extended HTTP support
-Summary(pl):	%{_modname} - rozszerzona obs³uga protoko³u HTTP
+Summary(pl.UTF-8):   %{_modname} - rozszerzona obsÅ‚uga protokoÅ‚u HTTP
 Name:		php-pecl-%{_modname}
 Version:	1.3.3
 Release:	2
@@ -50,31 +50,31 @@ Currently implemented features include:
 
 In PECL status of this extension is: %{_status}.
 
-%description -l pl
-To rozszerzenie HTTP ma na celu dostarczenie wygodnego i potê¿nego
-zestawu funkcjonalno¶ci do jednego z najwa¿niejszych zastosowañ PHP.
+%description -l pl.UTF-8
+To rozszerzenie HTTP ma na celu dostarczenie wygodnego i potÄ™Å¼nego
+zestawu funkcjonalnoÅ›ci do jednego z najwaÅ¼niejszych zastosowaÅ„ PHP.
 
-U³atwia obs³ugê adresów HTTP, dat, przekierowañ, nag³ówków i
-wiadmo¶ci, dostarcza sposób do negocjacji preferowanego jêzyka i
-strony kodowej klienta, jak równie¿ wygodnego sposobu wysy³ania
-dowolnego rodzaju danych z mo¿liwo¶ci± keszowania oraz wznawiania
-transferów.
+UÅ‚atwia obsÅ‚ugÄ™ adresÃ³w HTTP, dat, przekierowaÅ„, nagÅ‚Ã³wkÃ³w i
+wiadmoÅ›ci, dostarcza sposÃ³b do negocjacji preferowanego jÄ™zyka i
+strony kodowej klienta, jak rÃ³wnieÅ¼ wygodnego sposobu wysyÅ‚ania
+dowolnego rodzaju danych z moÅ¼liwoÅ›ciÄ… keszowania oraz wznawiania
+transferÃ³w.
 
-Rozszerzenie dostarcza potê¿ne mo¿liwo¶ci zapytañ, je¶li zbudowane
-jest ze wsparciem dla CURL. Równoleg³e zapytania s± dostêpne od wersji
+Rozszerzenie dostarcza potÄ™Å¼ne moÅ¼liwoÅ›ci zapytaÅ„, jeÅ›li zbudowane
+jest ze wsparciem dla CURL. RÃ³wnolegÅ‚e zapytania sÄ… dostÄ™pne od wersji
 PHP 5.
 
-Aktualnie zaimplementowane mo¿liwo¶ci to miêdzy innymi:
-- tworzenie bezwzglêdnych URI
+Aktualnie zaimplementowane moÅ¼liwoÅ›ci to miÄ™dzy innymi:
+- tworzenie bezwzglÄ™dnych URI
 - zgodne z RFC przekierowania HTTP
-- zgodna z RFC obs³uga daty HTTP
-- przetwarzanie nag³ówków i wiadomo¶ci HTTP
-- buforowanie z u¿yciem "Last-Modified" i/lub ETagów (z opcjê
-  generowania "w locie" ETagów z buforowanego wyj¶cia)
-- wysy³anie danych/plików/strumieni z obs³ug± (wielu) przedzia³ów
-- negocjacja preferowanego przez u¿ytkownika jêzyka/zestawu znaków
-- wygodne funkcje do ¿±dañ HEAD/GET/POST je¶li dostêpna jest libcurl
-- wywo³ania HTTP auth (Basic)
+- zgodna z RFC obsÅ‚uga daty HTTP
+- przetwarzanie nagÅ‚Ã³wkÃ³w i wiadomoÅ›ci HTTP
+- buforowanie z uÅ¼yciem "Last-Modified" i/lub ETagÃ³w (z opcjÄ™
+  generowania "w locie" ETagÃ³w z buforowanego wyjÅ›cia)
+- wysyÅ‚anie danych/plikÃ³w/strumieni z obsÅ‚ugÄ… (wielu) przedziaÅ‚Ã³w
+- negocjacja preferowanego przez uÅ¼ytkownika jÄ™zyka/zestawu znakÃ³w
+- wygodne funkcje do Å¼Ä…daÅ„ HEAD/GET/POST jeÅ›li dostÄ™pna jest libcurl
+- wywoÅ‚ania HTTP auth (Basic)
 - klasy PHP5: HttpUtil, HttpResponse, HttpRequest, HttpRequestPool,
   HttpMessage
 
