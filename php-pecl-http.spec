@@ -2,7 +2,7 @@
 %define		_fmodname	pecl_http
 %define		_status		stable
 Summary:	%{_modname} - extended HTTP support
-Summary(pl.UTF-8):   %{_modname} - rozszerzona obsługa protokołu HTTP
+Summary(pl.UTF-8):	%{_modname} - rozszerzona obsługa protokołu HTTP
 Name:		php-pecl-%{_modname}
 Version:	1.3.3
 Release:	2
