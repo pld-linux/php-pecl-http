@@ -6,7 +6,7 @@ Summary(pl.UTF-8):	%{_modname} - rozszerzona obsługa protokołu HTTP
 Name:		php-pecl-%{_modname}
 Version:	1.6.3
 Release:	1
-License:	BSD
+License:	BSD, revised
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
 # Source0-md5:	988d2c81147e10c97887bd481d5f8655
