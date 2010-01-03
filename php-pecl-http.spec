@@ -4,12 +4,12 @@
 Summary:	%{_modname} - extended HTTP support
 Summary(pl.UTF-8):	%{_modname} - rozszerzona obsługa protokołu HTTP
 Name:		php-pecl-%{_modname}
-Version:	1.6.5
+Version:	1.6.6
 Release:	1
 License:	BSD, revised
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
-# Source0-md5:	e11c52bbe5cfed900d80a0ed93df5574
+# Source0-md5:	5e676c1fbda74014cab699893fe2702c
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	curl-devel >= 7.12.3
 BuildRequires:	openssl-devel
