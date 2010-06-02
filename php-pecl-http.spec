@@ -1,14 +1,14 @@
-%define		_modname	http
-%define		_fmodname	pecl_http
-%define		_status		stable
-Summary:	%{_modname} - extended HTTP support
-Summary(pl.UTF-8):	%{_modname} - rozszerzona obsługa protokołu HTTP
-Name:		php-pecl-%{_modname}
+%define		modname	http
+%define		fmodname	pecl_http
+%define		status		stable
+Summary:	%{modname} - extended HTTP support
+Summary(pl.UTF-8):	%{modname} - rozszerzona obsługa protokołu HTTP
+Name:		php-pecl-%{modname}
 Version:	1.6.6
-Release:	1
+Release:	2
 License:	BSD, revised
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_fmodname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{fmodname}-%{version}.tgz
 # Source0-md5:	5e676c1fbda74014cab699893fe2702c
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	curl-devel >= 7.12.3
@@ -18,7 +18,7 @@ BuildRequires:	rpmbuild(macros) >= 1.344
 BuildRequires:	zlib-devel >= 1.2.0.4
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
-Obsoletes:	php-pear-%{_modname}
+Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,7 +48,7 @@ Currently implemented features include:
 - PHP5 classes: HttpUtil, HttpResponse, HttpRequest, HttpRequestPool,
   HttpMessage
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 To rozszerzenie HTTP ma na celu dostarczenie wygodnego i potężnego
@@ -78,13 +78,13 @@ Aktualnie zaimplementowane możliwości to między innymi:
 - klasy PHP5: HttpUtil, HttpResponse, HttpRequest, HttpRequestPool,
   HttpMessage
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{fmodname}-%{version}/* .
 
 %build
-cd %{_fmodname}-%{version}
 phpize
 %configure
 %{__make}
@@ -93,10 +93,10 @@ phpize
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
 
-install %{_fmodname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+install -p modules/%{modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -112,6 +112,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_fmodname}-%{version}/{KnownIssues.txt,docs}
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%doc KnownIssues.txt docs/*
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
