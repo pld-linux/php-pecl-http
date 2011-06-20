@@ -18,6 +18,8 @@ BuildRequires:	rpmbuild(macros) >= 1.344
 BuildRequires:	zlib-devel >= 1.2.0.4
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
+Requires:	php-session
+Requires:	php-iconv
 Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
