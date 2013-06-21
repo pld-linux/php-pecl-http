@@ -1,9 +1,10 @@
+%define		php_name	php%{?php_suffix}
 %define		modname	http
 %define		fmodname	pecl_http
 %define		status		stable
 Summary:	%{modname} - extended HTTP support
 Summary(pl.UTF-8):	%{modname} - rozszerzona obsługa protokołu HTTP
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	1.7.1
 Release:	3
 License:	BSD, revised
@@ -11,15 +12,15 @@ Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{fmodname}-%{version}.tgz
 # Source0-md5:	5047574da6b57741896e0463e84dbd8c
 URL:		http://pecl.php.net/package/pecl_http/
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
 BuildRequires:	curl-devel >= 7.12.3
 BuildRequires:	openssl-devel
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	zlib-devel >= 1.2.0.4
 %{?requires_php_extension}
+Requires:	%{php_name}-iconv
+Requires:	%{php_name}-session
 Requires:	php(core) >= 5.0.4
-Requires:	php-iconv
-Requires:	php-session
 Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
