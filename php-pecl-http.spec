@@ -6,7 +6,7 @@ Summary:	%{modname} - extended HTTP support
 Summary(pl.UTF-8):	%{modname} - rozszerzona obsługa protokołu HTTP
 Name:		%{php_name}-pecl-%{modname}
 Version:	1.7.6
-Release:	1
+Release:	2
 License:	BSD, revised
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{fmodname}-%{version}.tgz
@@ -21,6 +21,7 @@ BuildRequires:	zlib-devel >= 1.2.0.4
 Requires:	%{php_name}-iconv
 Requires:	%{php_name}-session
 Requires:	php(core) >= 5.0.4
+Provides:	php(%{modname}) = %{version}
 Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
