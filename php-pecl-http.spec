@@ -5,19 +5,22 @@
 Summary:	%{modname} - extended HTTP support
 Summary(pl.UTF-8):	%{modname} - rozszerzona obsługa protokołu HTTP
 Name:		%{php_name}-pecl-%{modname}
-Version:	1.7.6
-Release:	5
+Version:	2.4.1
+Release:	1
 License:	BSD, revised
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{fmodname}-%{version}.tgz
-# Source0-md5:	4926c17a24a11a9b1cf3ec613fad97cb
+# Source0-md5:	3d36be8577cf6d46c2372056e22e0669
 URL:		http://pecl.php.net/package/pecl_http/
-BuildRequires:	%{php_name}-devel >= 3:5.0.4
-BuildRequires:	curl-devel >= 7.12.3
+BuildRequires:	%{php_name}-devel >= 3:5.3.0
+BuildRequires:	%{php_name}-pecl-propro-devel >= 1.0.0
+BuildRequires:	%{php_name}-pecl-raphf-devel >= 1.0.0
+BuildRequires:	curl-devel >= 7.18.2
 BuildRequires:	openssl-devel
 BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	zlib-devel >= 1.2.0.4
 %{?requires_php_extension}
+Requires:	%{php_name}-hash
 Requires:	%{php_name}-iconv
 Requires:	%{php_name}-session
 Provides:	php(%{modname}) = %{version}
@@ -89,7 +92,10 @@ mv %{fmodname}-%{version}/* .
 
 %build
 phpize
-%configure
+%{__libtoolize}
+%configure \
+	PHP_RAPHF=raphf \
+	PHP_PROPRO=propro
 %{__make}
 
 %install
@@ -115,6 +121,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc KnownIssues.txt docs/*
+%doc KnownIssues.txt Exceptions.txt ThanksTo.txt CREDITS
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
 %attr(755,root,root) %{php_extensiondir}/%{modname}.so
