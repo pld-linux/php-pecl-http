@@ -22,6 +22,8 @@ BuildRequires:	zlib-devel >= 1.2.0.4
 %{?requires_php_extension}
 Requires:	%{php_name}-hash
 Requires:	%{php_name}-iconv
+Requires:	%{php_name}-pecl-propro
+Requires:	%{php_name}-pecl-raphf
 Requires:	%{php_name}-session
 Provides:	php(%{modname}) = %{version}
 Obsoletes:	php-pecl-http < 1.7.6-4
