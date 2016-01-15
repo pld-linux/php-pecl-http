@@ -5,12 +5,13 @@
 Summary:	%{modname} - extended HTTP support
 Summary(pl.UTF-8):	%{modname} - rozszerzona obsługa protokołu HTTP
 Name:		%{php_name}-pecl-%{modname}
-Version:	2.4.1
+Version:	2.5.5
 Release:	1
 License:	BSD, revised
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{fmodname}-%{version}.tgz
-# Source0-md5:	3d36be8577cf6d46c2372056e22e0669
+# Source0-md5:	99d34bf67ecd7e8e30b52820ecc13f0c
+Patch0:		php-pecl-http-build.patch
 URL:		http://pecl.php.net/package/pecl_http/
 BuildRequires:	%{php_name}-devel >= 3:5.3.0
 BuildRequires:	%{php_name}-pecl-propro-devel >= 1.0.0
@@ -91,6 +92,7 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{fmodname}-%{version}/* .
+%patch0 -p1
 
 %build
 phpize
@@ -123,6 +125,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc KnownIssues.txt Exceptions.txt ThanksTo.txt CREDITS
+%doc AUTHORS BUGS CONTRIBUTING.md CREDITS README.md THANKS TODO
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
 %attr(755,root,root) %{php_extensiondir}/%{modname}.so

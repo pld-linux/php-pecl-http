@@ -1,0 +1,67 @@
+--- php56-pecl-http-2.5.5/config9.m4~	2015-12-07 09:22:03.000000000 +0100
++++ php56-pecl-http-2.5.5/config9.m4	2016-01-15 14:00:45.971553280 +0100
+@@ -457,7 +457,7 @@ dnl ----
+ 			AC_MSG_CHECKING([for libevent version, roughly])
+ 
+ 			if test -f "$EVENT_DIR/include/event2/event.h"; then
+-				EVENT_VER="`$AWK '/_EVENT_VERSION/ {gsub(/\"/,\"\",$3); print $3}' < $EVENT_DIR/include/event2/event-config.h`"
++				EVENT_VER=$($AWK '/_EVENT_VERSION/ {gsub(/"/,"",$3); print $3}' < $EVENT_DIR/include/event2/event-config.h)
+ 				AC_DEFINE([PHP_HTTP_HAVE_EVENT2], [1], [ ])
+ 			else
+ 				AC_DEFINE([PHP_HTTP_HAVE_EVENT2], [0], [ ])
+--- php56-pecl-http-2.5.5/config9.m4~	2016-01-15 14:01:36.000000000 +0100
++++ php56-pecl-http-2.5.5/config9.m4	2016-01-15 14:03:27.718758397 +0100
+@@ -483,7 +483,6 @@ dnl ----
+ dnl ----
+ dnl RAPHF
+ dnl ----
+-	HTTP_HAVE_PHP_EXT([raphf], [
+ 		AC_MSG_CHECKING([for php_raphf.h])
+ 		HTTP_EXT_RAPHF_INCDIR=
+ 		for i in `echo $INCLUDES | $SED -e's/-I//g'` $abs_srcdir ../raphf; do
+@@ -504,14 +503,10 @@ dnl ----
+ 			AC_DEFINE([PHP_HTTP_HAVE_PHP_RAPHF_H], [1], [Have ext/raphf support])
+ 			PHP_ADD_INCLUDE([$HTTP_EXT_RAPHF_INCDIR])
+ 		fi
+-	], [
+-		AC_MSG_ERROR([Please install pecl/raphf and activate extension=raphf.$SHLIB_DL_SUFFIX_NAME in your php.ini])
+-	])
+ 
+ dnl ----
+ dnl PROPRO
+ dnl ----
+-	HTTP_HAVE_PHP_EXT([propro], [
+ 		AC_MSG_CHECKING([for php_propro.h])
+ 		HTTP_EXT_PROPRO_INCDIR=
+ 		for i in `echo $INCLUDES | $SED -e's/-I//g'` $abs_srcdir ../propro; do
+@@ -532,9 +527,6 @@ dnl ----
+ 			AC_DEFINE([PHP_HTTP_HAVE_PHP_PROPRO_H], [1], [Have ext/propro support])
+ 			PHP_ADD_INCLUDE([$HTTP_EXT_PROPRO_INCDIR])
+ 		fi
+-	], [
+-		AC_MSG_ERROR([Please install pecl/propro and activate extension=propro.$SHLIB_DL_SUFFIX_NAME in your php.ini])
+-	])
+ 
+ PHP_ARG_WITH([http-shared-deps], [whether to depend on extensions which have been built shared],
+ [  --without-http-shared-deps   HTTP: do not depend on extensions like hash
+@@ -542,7 +534,6 @@ PHP_ARG_WITH([http-shared-deps], [whethe
+ dnl ----
+ dnl HASH
+ dnl ----
+-	HTTP_HAVE_PHP_EXT([hash], [
+ 		AC_MSG_CHECKING([for php_hash.h])
+ 		HTTP_EXT_HASH_INCDIR=
+ 		for i in `echo $INCLUDES | $SED -e's/-I//g'` $abs_srcdir ../hash; do
+@@ -563,12 +554,10 @@ dnl ----
+ 			AC_DEFINE([PHP_HTTP_HAVE_PHP_HASH_H], [1], [Have ext/hash support])
+ 			PHP_ADD_INCLUDE([$HTTP_EXT_HASH_INCDIR])
+ 		fi
+-	])
+ 
+ dnl ----
+ dnl ICONV
+ dnl ----
+-	HTTP_HAVE_PHP_EXT([iconv])
+ 
+ dnl ----
+ dnl DONE
